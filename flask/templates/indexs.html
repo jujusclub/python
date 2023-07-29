@@ -1,0 +1,47 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>사칙연산 계산기</title>
+    <style>
+        .button {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>사칙연산 계산기</h1>
+    <form action="/calculate" method="POST">
+        <input type="text" name="expression" placeholder="수식을 입력하세요" readonly>
+        <br><br>
+        <input type="button" class="button" value="1" onclick="addToExpression('1')">
+        <input type="button" class="button" value="2" onclick="addToExpression('2')">
+        <input type="button" class="button" value="3" onclick="addToExpression('3')">
+        <input type="button" class="button" value="+" onclick="addToExpression('+')">
+        <br>
+        <input type="button" class="button" value="4" onclick="addToExpression('4')">
+        <input type="button" class="button" value="5" onclick="addToExpression('5')">
+        <input type="button" class="button" value="6" onclick="addToExpression('6')">
+        <input type="button" class="button" value="-" onclick="addToExpression('-')">
+        <br>
+        <input type="button" class="button" value="7" onclick="addToExpression('7')">
+        <input type="button" class="button" value="8" onclick="addToExpression('8')">
+        <input type="button" class="button" value="9" onclick="addToExpression('9')">
+        <input type="button" class="button" value="×" onclick="addToExpression('×')">
+        <br>
+        <input type="button" class="button" value="0" onclick="addToExpression('0')">
+        <input type="button" class="button" value="." onclick="addToExpression('.')">
+        <input type="button" class="button" value="÷" onclick="addToExpression('÷')">
+        <input type="submit" class="button" value="=">
+    </form>
+    {% if result %}
+        <h2>결과: {{ result }}</h2>
+    {% endif %}
+     <script>
+        function addToExpression(value) {
+            document.getElementsByName('expression')[0].value += value;
+        }
+    </script>
+</body>
+</html>
